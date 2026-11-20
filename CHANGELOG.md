@@ -11,15 +11,15 @@ credenziali o informazioni su infrastruttura privata.
 ## [0.2.1] - 2026-11-20
 
 Questa release aggiunge la presence Discord, le sessioni reali di gara e la vista Lista
-delle piste, e corregge la conclusione delle gare e la griglia Tracks.
+delle piste, e corregge la conclusione delle gare e la griglia Tracks. La configurazione
+Discord è gestita dall'app: l'utente vede solo il toggle di attivazione.
 
 ### Aggiunto
 
 - **Discord Rich Presence** opzionale: mostra in Discord l'attività di KartX (in attesa del
   gioco, lobby, gara con pista/posizione/giro, gara terminata) tramite il protocollo RPC
-  locale di Discord. Richiede un Application ID configurato in Settings; l'immagine
-  opzionale si imposta con la chiave dell'asset caricato nel Developer Portal. Nessun
-  nickname o dato privato viene condiviso.
+  locale di Discord. Application ID e logo sono gestiti dall'app; nessuna configurazione
+  Discord richiesta. Nessun nickname o dato privato viene condiviso.
 - **Sessioni reali** nel database: un Grand Prix finito e una sessione online continua sono
   entità distinte. La pagina Grand Prix permette di aprire una sessione e vedere le gare
   che contiene; lo storico precedente resta separato come ricostruzione.
@@ -27,6 +27,13 @@ delle piste, e corregge la conclusione delle gare e la griglia Tracks.
   locale; entrambe le viste usano gli stessi dati, filtri e ordinamento.
 - **Penultimo arrivato**: la gara viene finalizzata quando il penultimo partecipante
   taglia il traguardo, senza attendere l'ultimo kart.
+
+### Migliorato
+
+- L'Application ID e la chiave immagine Discord sono gestiti dall'app: non sono più
+  visibili né modificabili in Settings. L'ID viene conservato quando si salvano le altre
+  preferenze; il logo usa sempre la chiave fissa `kartx`. La card Discord contiene solo il
+  toggle **Mostra KartX in Discord**.
 
 ### Corretto
 
@@ -49,8 +56,8 @@ delle piste, e corregge la conclusione delle gare e la griglia Tracks.
 
 - L'installer non è firmato digitalmente: Windows SmartScreen può chiedere una conferma
   al primo avvio.
-- La presence Discord richiede un Application ID configurato; l'immagine è opzionale e
-  deve corrispondere a un asset caricato nel Developer Portal.
+- Il logo della presence usa l'asset con chiave `kartx`; deve essere presente nell'app
+  Discord configurata, ma l'utente non deve impostare nulla in KartX.
 
 ## [0.2.0] - 2026-11-17
 
